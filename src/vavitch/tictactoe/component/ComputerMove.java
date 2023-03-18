@@ -17,7 +17,10 @@
 
 package vavitch.tictactoe.component;
 
+import vavitch.tictactoe.model.Cell;
 import vavitch.tictactoe.model.GameTable;
+
+import java.util.Random;
 
 /**
  * @author vavitch
@@ -26,5 +29,13 @@ import vavitch.tictactoe.model.GameTable;
 public class ComputerMove {
 
     public void make(final GameTable gameTable) {
+
+        while (true) {
+            final Cell cell = new Cell(new Random().nextInt(3), new Random().nextInt(3));
+            if (gameTable.isEmpty(cell)) {
+                gameTable.setSign(cell, 'O');
+                return;
+            }
+        }
     }
 }
