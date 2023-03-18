@@ -17,6 +17,8 @@
 
 package vavitch.tictactoe;
 
+import vavitch.tictactoe.component.*;
+
 /**
  * @author vavitch
  * @link vavitch@yahoo.com

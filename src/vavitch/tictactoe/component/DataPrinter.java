@@ -15,19 +15,20 @@
  *
  */
 
-package vavitch.tictactoe;
+package vavitch.tictactoe.component;
+
+import vavitch.tictactoe.model.GameTable;
 
 /**
  * @author vavitch
  * @link vavitch@yahoo.com
  */
-public class WinnerVerifier {
+public class DataPrinter {
 
-    public boolean isUserWin(final GameTable gameTable) {
-        return false;
+    public void printMappingTable() {
     }
 
-    public boolean isComputerWin(final GameTable gameTable) {
-        return false;
+
+    public void printGameTable(final GameTable gameTable) {
     }
 }

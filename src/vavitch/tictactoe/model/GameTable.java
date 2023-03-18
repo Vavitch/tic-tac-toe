@@ -15,7 +15,7 @@
  *
  */
 
-package vavitch.tictactoe;
+package vavitch.tictactoe.model;
 
 /**
  * @author vavitch

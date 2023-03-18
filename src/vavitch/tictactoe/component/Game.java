@@ -15,7 +15,9 @@
  *
  */
 
-package vavitch.tictactoe;
+package vavitch.tictactoe.component;
+
+import vavitch.tictactoe.model.GameTable;
 
 import java.util.Random;
 
