@@ -17,15 +17,24 @@
 
 package vavitch.tictactoe.component;
 
+import vavitch.tictactoe.model.Cell;
 import vavitch.tictactoe.model.GameTable;
 
 /**
  * @author vavitch
  * @link vavitch@yahoo.com
  */
-public class DrawVerifier {
+public class CellEmptyVerifier {
 
-    public boolean isDraw(final GameTable gameTable) {
-        return false;
+    public boolean isEmtyCell(final GameTable gameTable) {
+
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (gameTable.isEmpty(new Cell(i, j))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

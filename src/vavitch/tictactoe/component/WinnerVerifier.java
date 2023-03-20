@@ -63,6 +63,11 @@ public class WinnerVerifier {
                 }
             }
         }
+        if (gameTable.getSign(new Cell(0, 2)) == gameTable.getSign(new Cell(2, 0)) &&
+                gameTable.getSign(new Cell(0, 2)) == gameTable.getSign(new Cell(1, 1)) &&
+                gameTable.getSign(new Cell(0, 2)) == sign) {
+            return true;
+        }
         return false;
     }
 }
