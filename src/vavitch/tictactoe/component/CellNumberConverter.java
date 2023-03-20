@@ -15,20 +15,32 @@
  *
  */
 
-package vavitch.tictactoe;
+package vavitch.tictactoe.component;
 
-import vavitch.tictactoe.component.*;
+import vavitch.tictactoe.model.Cell;
 
 /**
  * @author vavitch
  * @link vavitch@yahoo.com
  */
-public final class Launcher {
-    public static void main(final String[] args) {
-        final CellNumberConverter cellNumberConverter = new CellNumberConverter();
-        final Game game = new Game(new DataPrinter(cellNumberConverter), new ComputerMove()
-                , new UserMove(cellNumberConverter), new WinnerVerifier(), new CellEmptyVerifier());
-        game.play();
+public class CellNumberConverter {
+    private int[][] temp = {{7, 8, 9},
+            {4, 5, 6},
+            {1, 2, 3}};
 
+    public Cell toCell(final int number) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (temp[i][j] == number) {
+                    return new Cell(i, j);
+                }
+            }
+        }
+        return null;
     }
+
+    public int toNumber(final Cell cell) {
+        return temp[cell.getRow()][cell.getCol()];
+    }
+
 }

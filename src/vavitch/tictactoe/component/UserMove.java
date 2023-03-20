@@ -17,7 +17,6 @@
 
 package vavitch.tictactoe.component;
 
-import vavitch.tictactoe.model.Cell;
 import vavitch.tictactoe.model.GameTable;
 
 import java.util.Scanner;
@@ -29,10 +28,11 @@ import java.util.Scanner;
  */
 public class UserMove {
 
-    private int[][] temp = {{7, 8, 9},
-            {4, 5, 6},
-            {1, 2, 3}};
+    final private CellNumberConverter cellNumberConverter;
 
+    public UserMove(final CellNumberConverter cellNumberConverter) {
+        this.cellNumberConverter = cellNumberConverter;
+    }
 
     public void make(final GameTable gameTable) {
         int num;
@@ -50,17 +50,13 @@ public class UserMove {
                 }
             }
 
-            for (int i = 0; i < 3; i++) {
-                for (int j = 0; j < 3; j++) {
-                    if (num == temp[i][j] && gameTable.isEmpty(new Cell(i, j))) {
-                        gameTable.setSign(new Cell(i, j), 'X');
-                        return;
-                    } else if (num == temp[i][j]) {
-                        System.out.println("Can't make a move, because the cell is not free! Try again!");
-                    }
-                }
-
+            if (gameTable.isEmpty(cellNumberConverter.toCell(num))) {
+                gameTable.setSign(cellNumberConverter.toCell(num), 'X');
+                return;
+            } else {
+                System.out.println("Can't make a move, because the cell is not free! Try again!");
             }
+
         }
     }
 
