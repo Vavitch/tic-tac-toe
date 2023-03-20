@@ -17,6 +17,7 @@
 
 package vavitch.tictactoe.component;
 
+import vavitch.tictactoe.model.Cell;
 import vavitch.tictactoe.model.GameTable;
 
 /**
@@ -26,10 +27,42 @@ import vavitch.tictactoe.model.GameTable;
 public class WinnerVerifier {
 
     public boolean isUserWin(final GameTable gameTable) {
-        return false;
+        return winner(gameTable, 'X');
     }
 
     public boolean isComputerWin(final GameTable gameTable) {
+        return winner(gameTable, 'O');
+    }
+
+    private boolean winner(final GameTable gameTable, final char sign) {
+
+        int countIJ = 0;
+
+        for (int i = 0; i < 3; i++) {
+            int countJ = 0;
+            int countI = 0;
+
+            for (int j = 0; j < 3; j++) {
+                if (gameTable.getSign(new Cell(i, j)) == sign) {
+                    countJ++;
+                    if (countJ == 3) {
+                        return true;
+                    }
+                }
+                if (gameTable.getSign(new Cell(j, i)) == sign) {
+                    countI++;
+                    if (countI == 3) {
+                        return true;
+                    }
+                }
+                if (i == j && gameTable.getSign(new Cell(i, j)) == sign) {
+                    countIJ++;
+                    if (countIJ == 3) {
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
 }
