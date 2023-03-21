@@ -18,6 +18,8 @@
 package vavitch.tictactoe;
 
 import vavitch.tictactoe.component.*;
+import vavitch.tictactoe.keypad.CellNumberConverter;
+import vavitch.tictactoe.keypad.TerminalNumericKeypadCellNumberConverter;
 
 /**
  * @author vavitch
@@ -25,7 +27,12 @@ import vavitch.tictactoe.component.*;
  */
 public final class Launcher {
     public static void main(final String[] args) {
-        final CellNumberConverter cellNumberConverter = new CellNumberConverter();
+        // finalCellNumberConverter cellNumberConverter =
+        // new DesktopNumericKeypadCellNumberConverter();1
+
+        final CellNumberConverter cellNumberConverter =
+                new TerminalNumericKeypadCellNumberConverter();
+
         final Game game = new Game(new DataPrinter(cellNumberConverter), new ComputerMove()
                 , new UserMove(cellNumberConverter), new WinnerVerifier(), new CellEmptyVerifier());
         game.play();

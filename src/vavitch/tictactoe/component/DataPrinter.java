@@ -17,6 +17,7 @@
 
 package vavitch.tictactoe.component;
 
+import vavitch.tictactoe.keypad.CellNumberConverter;
 import vavitch.tictactoe.model.Cell;
 import vavitch.tictactoe.model.GameTable;
 

@@ -15,7 +15,7 @@
  *
  */
 
-package vavitch.tictactoe.component;
+package vavitch.tictactoe.keypad;
 
 import vavitch.tictactoe.model.Cell;
 
@@ -23,11 +23,13 @@ import vavitch.tictactoe.model.Cell;
  * @author vavitch
  * @link vavitch@yahoo.com
  */
-public class CellNumberConverter {
+public class DesktopNumericKeypadCellNumberConverter implements CellNumberConverter {
     private int[][] temp = {{7, 8, 9},
             {4, 5, 6},
             {1, 2, 3}};
 
+
+    @Override
     public Cell toCell(final int number) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -39,6 +41,8 @@ public class CellNumberConverter {
         return null;
     }
 
+
+    @Override
     public int toNumber(final Cell cell) {
         return temp[cell.getRow()][cell.getCol()];
     }
