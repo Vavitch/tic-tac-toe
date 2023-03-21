@@ -32,14 +32,7 @@ public class TerminalNumericKeypadCellNumberConverter implements CellNumberConve
 
     @Override
     public Cell toCell(final int number) {
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (temp[i][j] == number) {
-                    return new Cell(i, j);
-                }
-            }
-        }
-        return null;
+        return new Cell((number - 1) / 3, (number - 1) % 3);
     }
 
 
