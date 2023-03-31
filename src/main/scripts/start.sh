@@ -3,4 +3,4 @@
 # game tic-tac-toe in console-mode
 
 
-java -jar tic-tac-toe.jar
+java -jar ${project.build.finalName}.jar

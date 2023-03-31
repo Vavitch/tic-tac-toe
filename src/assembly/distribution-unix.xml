@@ -4,9 +4,9 @@
 http://maven.apache.org/ASSEMBLY/2.1.1
 http://maven.apache.org/ASSEMBLY/2.1.1 ">
 
-    <id>windows</id>
+    <id>unix</id>
     <formats>
-        <format>zip</format>
+        <format>tar.gz</format>
     </formats>
 
     <fileSets>
@@ -17,22 +17,23 @@ http://maven.apache.org/ASSEMBLY/2.1.1 ">
                 <include>LICENSE</include>
                 <include>NOTICE</include>
             </includes>
-            <lineEnding>windows</lineEnding>
+            <lineEnding>unix</lineEnding>
         </fileSet>
         <fileSet>
             <directory>${project.build.directory}</directory>
             <outputDirectory/>
             <includes>
-                <include>${project.build.finalName}.jar</include>
+                <include>${project.build.finalName}.jar.jar</include>
             </includes>
         </fileSet>
         <fileSet>
             <directory>${project.basedir}/src/main/scripts</directory>
             <outputDirectory/>
             <includes>
-                <include>*.cmd</include>
+                <include>*.sh</include>
             </includes>
-            <lineEnding>windows</lineEnding>
+            <lineEnding>unix</lineEnding>
+            <fileMode>755</fileMode>
             <filtered>true</filtered>
         </fileSet>
     </fileSets>
