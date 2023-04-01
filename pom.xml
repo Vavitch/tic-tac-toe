@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>tic-tac-toe</name>
+    <name>TIC TAC TOE</name>
     <description>The single mode-console tic-tac-toe game</description>
 
 
